@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <meta name="viewport" content = "width=device-width,initial-scale=1">
+    <title> Fake News Detector </title>
+</head>
+
+<body>
+    <div id="header" class="section" style = "background-color:#20bcd5">
+    <font size = "6">Fake News Detector</font>
+    </div>
+    <div>
+        <form action="{{ url_for('predict')}}" method="post">
+            <b><u><p style="text-align: center;font-size: 25px;">News Headline</b>
+            <textarea id="Headline" name="Headline" placeholder="Headline " required style="width:95%"></textarea></p>
+            <b><p style="text-align: center;font-size: 25px;">News Content</b>
+            <textarea id="Content" name="Content" placeholder="Content" required style="width:95%"></textarea>
+            <input id="submit" type="submit" value="FAKE OR FACT?" class="submit" style="width:10%" /></p>
+        </form>
+        <h3 style="text-align: center;">{{ prediction_text }}<h3>
+        {% block content %}
+            <img src="{{ img_path }}" alt = " " class="center" width="250" height="130"/>
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>
+
+
+    <style>
+        body {
+            padding: 0px;
+            font-family: sans-serif;
+        }
+ 
+        #Headline {
+            height: 20px;
+            font-size: 15px;
+        }
+        
+        #Content {
+            font-size: 15px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        textarea {
+            margin-top: 3px;
+            margin-left: 10px;
+            padding: 15px 10px 10px;
+            border: 1px solid #cecece;
+            background-color: #efefef;
+            color: #787575;
+            outline: none;
+        }
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .section {
+            text-align: center;
+            background-color: #fff;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+        .submit {
+            background-color: #3fb6b2;
+            padding: 12px 0px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #ffffff;
+            border: none;
+            outline: none;
+            margin: 0;
+            font-weight: bold;
+        }
+        .submit:hover {
+            background-color: #43a09d;
+        }
+    </style>
